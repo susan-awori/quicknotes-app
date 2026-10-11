@@ -57,3 +57,36 @@ function deleteNote(id) {
   render();
 }
 
+function createNoteCard(note) {
+  const li = document.createElement('li');
+  li.classList.add('note-card', 'category-' + note.category.toLowerCase());
+
+  const text = document.createElement('p');
+  text.classList.add('note-text');
+  text.textContent = note.text;
+
+  const meta = document.createElement('div');
+  meta.classList.add('note-meta');
+
+  const label = document.createElement('span');
+  label.classList.add('category-label');
+  label.textContent = note.category;
+
+  const date = document.createElement('span');
+  date.classList.add('note-date');
+  date.textContent = note.createdAt;
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.type = 'button';
+  deleteBtn.classList.add('btn', 'btn-danger');
+  deleteBtn.textContent = 'Delete';
+  deleteBtn.addEventListener('click', function () {
+    deleteNote(note.id);
+  });
+
+  meta.append(label, date, deleteBtn);
+  li.append(text, meta);
+  return li;
+}
+
+
