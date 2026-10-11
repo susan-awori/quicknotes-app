@@ -11,3 +11,20 @@ const MAX_LENGTH = 200;
 const STORAGE_KEY = 'quicknotes-notes';
 const CATEGORIES = ['Personal', 'Work', 'Study'];
 
+function loadNotes() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      return [];
+    }
+    const parsed = JSON.parse(saved);
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+    return parsed.filter(function (n) {
+      return n && typeof n.text === 'string' && CATEGORIES.includes(n.category);
+    });
+  } catch (error) {
+    return [];
+  }
+}
