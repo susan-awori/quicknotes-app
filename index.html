@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickNotes-App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+      <header>
+    <h1>QuickNotes</h1>
+    <p class="tagline">Jot it down. Find it later.</p>
+      </header>
+
+  <main>
+    <section id="add-section" aria-labelledby="add-heading">
+      <h2 id="add-heading">Add a note</h2>
+      <form id="note-form">
+        <div class="form-field grow">
+          <label for="note-input">Note</label>
+          <input type="text" id="note-input" name="note" placeholder="What's on your mind?" autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label for="note-category">Category</label>
+          <select id="note-category" name="category">
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Study">Study</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Note</button>
+      </form>
+      <p id="error-message" role="alert"></p>
+    </section>
+
+    <section id="notes-section" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Your notes</h2>
+      <label for="search-input">Search notes</label>
+      <input type="search" id="search-input" placeholder="Type to search..." autocomplete="off">
+      <div class="count-row">
+        <p id="note-count"></p>
+        <button type="button" id="clear-all" class="btn btn-danger">Clear all</button>
+      </div>
+      <ul id="notes-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 QuickNotes. Built with HTML, CSS and JavaScript.</p>
+  </footer>
+</body>
+</html>
