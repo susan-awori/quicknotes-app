@@ -28,3 +28,13 @@ function loadNotes() {
     return [];
   }
 }
+
+function saveNotes() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+  } catch (error) {
+    errorMessage.textContent = 'Could not save notes in this browser.';
+  }
+}
+
+let notes = loadNotes();
